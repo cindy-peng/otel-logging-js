@@ -51,5 +51,13 @@ function rollOnceWitoutSpan(min, max) {
       return result;
     });
   }
+
+  // Testing tracer.startSpan
+  // Looks like startSpan won't be supported by logging libraries since this will start a span without setting it on the context: https://opentelemetry.io/docs/languages/js/instrumentation/#create-spans
+  function rollTheDiceWithStartSpan(req, rolls, min, max) {
+    const span = tracer.startSpan("rollTheDice-withStartSpan");
+    logHttpRequest(req);
+    span.end();
+  }
   
   module.exports = { rollTheDice };

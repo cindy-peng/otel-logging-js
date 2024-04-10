@@ -5,8 +5,8 @@ const {Logging} = require('@google-cloud/logging');
 function logHttpRequest(
     req,
 //    tracer,
-  traceId,
-  spanId,
+  traceId="",
+  spanId="",
     projectId = 'cindy-cloud-sdk-test', // Your Google Cloud Platform project ID
     logName = 'my-log', // The name of the log to write to
     requestMethod = 'GET', // GET, POST, PUT, etc.
